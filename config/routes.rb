@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
     delete :destroy, on: :collection
   end
+  resources :votes, only: [:create, :update, :destroy]
 
 end
