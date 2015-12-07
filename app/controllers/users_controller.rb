@@ -20,8 +20,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find current_user
-    if @user.update user_params
-      redirect_to @user, notice: "Account updated"
+    if !@user.authenticate(params[:user][:current_password])
+      flash.now[:alert] = "You've entered the wrong password"
+      render :edit
+    elsif @user.update user_params
+      redirect_to root_path, notice: "Account updated"
     else
       render :edit
     end
