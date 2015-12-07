@@ -1,0 +1,18 @@
+<h1>A Quote From <%= @quote.author %></h1>
+
+<p>
+  They said
+  <span class="quote">
+    <%= @quote.body %>
+  </span>
+  <% if @quote.date %>
+    on <%= @quote.date %>
+  <% end %>
+  <% if @quote.location %>
+   when they were located in <%= @quote.location %>
+ <% end %>
+</p>
+
+<div>
+  <%= link_to "Home", root_path %>
+</div>

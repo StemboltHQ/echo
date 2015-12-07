@@ -1,0 +1,10 @@
+<%= simple_form_for @quote do |f| %>
+
+  <%= f.input :author %>
+  <%= f.input :supplier %>
+  <%= f.input :date %>
+  <%= f.input :location %>
+  <%= f.input :body %>
+  <%= f.submit "A New Quote" %>
+
+<% end %>

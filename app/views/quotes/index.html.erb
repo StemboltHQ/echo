@@ -1,0 +1,9 @@
+<h1>Stembolt Highlights and Bloopers</h1>
+
+<% @quotes.each do |quote| %>
+  <div>
+    <%= link_to "#{quote.body}", quote %>
+  </div>
+<% end %>
+
+<%= render "form" %>
