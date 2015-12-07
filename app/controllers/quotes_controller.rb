@@ -2,6 +2,7 @@ class QuotesController < ApplicationController
 
   def show
     @quote = Quote.find params[:id]
+    @vote = @quote.vote_for current_user
   end
 
   def new
