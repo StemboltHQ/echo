@@ -1,0 +1,26 @@
+<div id="vote">
+  <% if @vote.nil? %>
+    <%= link_to "<i class='glyphicon glyphicon-triangle-top voting'></i>".html_safe,
+                  quote_votes_path(@quote, {vote: {is_up: true}}),
+                  method: :post %>
+    <div><%= @quote.vote_result %></div>
+    <%= link_to "<i class='glyphicon glyphicon-triangle-bottom voting'></i>".html_safe,
+                  quote_votes_path(@quote, {vote: {is_up: false}}),
+                  method: :post %>
+  <% elsif @vote.is_up? %>
+    <%= link_to "<i class='glyphicon glyphicon-triangle-top voting vote-active'></i>".html_safe,
+                  quote_vote_path(@quote, @vote), method: :delete %>
+    <div><%= @quote.vote_result %></div>
+    <%= link_to "<i class='glyphicon glyphicon-triangle-bottom voting'></i>".html_safe,
+                quote_vote_path(@quote, @vote, {vote: {is_up: false}}),
+                method: :patch %>
+  <% else %>
+    <%= link_to "<i class='glyphicon glyphicon-triangle-top voting'></i>".html_safe,
+                  quote_vote_path(@quote, @vote, {vote: {is_up: true}}),
+                  method: :patch %>
+    <div><%= @quote.vote_result %></div>
+    <%= link_to "<i class='glyphicon glyphicon-triangle-bottom voting vote-active'></i>".html_safe,
+                  quote_vote_path(@quote, @vote),
+                  method: :delete %>
+  <% end %>
+</div>
