@@ -2,8 +2,10 @@
 
 <% @quotes.each do |quote| %>
   <div>
-    <%= link_to "#{quote.body}", quote %>
+    <%= link_to quote.body, quote %>
   </div>
 <% end %>
 
-<%= render "form" %>
+<% if current_user %>
+  <%= render "form" %>
+<% end %>

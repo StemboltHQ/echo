@@ -1,6 +1,7 @@
 class Quote < ActiveRecord::Base
 
-  validates :body, presence: true
+  belongs_to :user
 
+  validates :body, presence: true
 
 end
